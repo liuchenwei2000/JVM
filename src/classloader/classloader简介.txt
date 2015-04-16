@@ -1,7 +1,9 @@
 ClassLoader 简介
 
 
-ClassLoader是用来加载class文件到JVM以供程序使用的。Java程序可以动态加载类定义，而这个动态加载的机制就是通过ClassLoader来实现的。程序在启动的时候，并不会一次性加载程序所要用到的所有class文件，而是根据需要，通过Java的类加载机制来动态加载某个class文件到JVM中，只有class文件被装入到内存之后，才能被其他class所引用。
+ClassLoader是用来加载class文件到JVM以供程序使用的。Java程序可以动态加载类定义，而这个动态加载的机制就是通过ClassLoader来实现的。
+程序在启动的时候，并不会一次性加载程序所要用到的所有class文件，而是根据需要，通过Java的类加载机制来动态加载某个class文件到JVM中，
+只有class文件被装入到内存之后，才能被其他class所引用。
 
 
 Java默认提供的三个ClassLoader
@@ -19,7 +21,9 @@ Java默认提供的三个ClassLoader
 系统类加载器，负责加载应用程序classpath目录下的所有jar和class文件。
 
 
-当运行一个程序的时候，JVM启动，运行BootstrapClassLoader，加载Java核心API（ExtClassLoader和AppClassLoader也在此时被加载），然后调用ExtClassLoader加载扩展API，最后AppClassLoader加载classpath目录下定义的class，这就是一个程序基本的加载流程。需要注意的是，BootstrapClassLoader是JVM级别的，由C++撰写，而另外两个都是Java类。
+当运行一个程序的时候，JVM启动，运行BootstrapClassLoader，加载Java核心API（ExtClassLoader和AppClassLoader也在此时被加载），
+然后调用ExtClassLoader加载扩展API，最后AppClassLoader加载classpath目录下定义的class，这就是一个程序基本的加载流程。
+需要注意的是，BootstrapClassLoader是JVM级别的，由C++撰写，而另外两个都是Java类。
 
 
 ClassLoader加载类原理
@@ -29,16 +33,21 @@ ClassLoader加载类原理
 即当一个ClassLoader加载一个class的时候，这个class所依赖和引用的所有class也由这个ClassLoader负责载入，除非是显式的使用另外一个ClassLoader。
 
 第二，ClassLoader使用双亲委托模型来搜索类。
-每个ClassLoader实例都有一个父加载器的引用（是加载它的那个ClassLoader，不是它继承的ClassLoader），BootstrapClassLoader没有父加载器，但可以作为其他ClassLoader实例的父加载器。当一个ClassLoader实例需要加载某个类时，它会先把这个任务委托给它的父加载器，这个过程是由上至下依次检查的，首先由最顶层的类加载器BootstrapClassLoader尝试加载，如果没有加载到，则把任务转交给ExtClassLoader，若没加载到则转交给AppClassLoader……如果都没加载到则一直转交到委托发起者，由它去加载。如果都没有加载到这个类的话，则抛出ClassNotFoundException。
+每个ClassLoader实例都有一个父加载器的引用（是加载它的那个ClassLoader，不是它继承的ClassLoader），BootstrapClassLoader没有父加载器，但可以作为其他ClassLoader实例的父加载器。
+当一个ClassLoader实例需要加载某个类时，它会先把这个任务委托给它的父加载器，这个过程是由上至下依次检查的，
+首先由最顶层的类加载器BootstrapClassLoader尝试加载，如果没有加载到，则把任务转交给ExtClassLoader，若没加载到则转交给AppClassLoader……
+如果都没加载到则一直转交到委托发起者，由它去加载。如果都没有加载到这个类的话，则抛出ClassNotFoundException。
 
 
-使用双亲委托模型的好处是避免重复加载，当父加载器已经加载过某类之后，子加载器就没有必要再加载一次。另外这种方式还可以提高安全性，避免自定义的类替换Java核心API的可能。
+使用双亲委托模型的好处是避免重复加载，当父加载器已经加载过某类之后，子加载器就没有必要再加载一次。
+另外这种方式还可以提高安全性，避免自定义的类替换Java核心API的可能。
 
 
 自定义ClassLoader
 
 
-因为Java中提供的默认ClassLoader只能加载指定目录下的jar和class，如果想加载其他位置的类或jar时，比如要加载网络上的一个class文件，则需要定义自己的ClassLoader。自定义类加载器主要用途有：运行时决定是否加载某类、改变class文件字节码的加载方式（使得class文件字节码可以加密存储）、运行时修改已加载的字节码（比如AOP实现切面织入）。
+因为Java中提供的默认ClassLoader只能加载指定目录下的jar和class，如果想加载其他位置的类或jar时，比如要加载网络上的一个class文件，则需要定义自己的ClassLoader。
+自定义类加载器主要用途有：运行时决定是否加载某类、改变class文件字节码的加载方式（使得class文件字节码可以加密存储）、运行时修改已加载的字节码（比如AOP实现切面织入）。
 
 目前常用web服务器中都定义了自己的类加载器，用于加载web应用指定目录下的类库。
 
