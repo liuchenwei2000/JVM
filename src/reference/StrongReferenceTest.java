@@ -4,11 +4,11 @@
 package reference;
 
 /**
- * Ç¿ÒıÓÃÊ¾Àı
+ * å¼ºå¼•ç”¨ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-6-5
+ * åˆ›å»ºæ—¥æœŸï¼š2013-6-5
  */
 public class StrongReferenceTest {
 
@@ -19,14 +19,14 @@ public class StrongReferenceTest {
 		Bean bean = new Bean("Strong Reference Bean");
 		System.out.println(bean);
 		
-		// Ö´ĞĞÀ¬»ø»ØÊÕ
+		// æ‰§è¡Œåƒåœ¾å›æ”¶
 		System.gc();
 		System.runFinalization();
 		
-		// Ç¿ÒıÓÃÓÀÔ¶²»»á±»»ØÊÕ
+		// å¼ºå¼•ç”¨æ°¸è¿œä¸ä¼šè¢«å›æ”¶
 		System.out.println(bean);
 		
-		/** ÏÂÃæ½øĞĞ´óÊı¾İÁ¿¶ÔÏóµÄ´´½¨£¬Èô-XmxµÄÄÚ´æ×ã¹»Ğ¡µÄ»°£¬»áÅ×OutOfMemoryError */
+		/** ä¸‹é¢è¿›è¡Œå¤§æ•°æ®é‡å¯¹è±¡çš„åˆ›å»ºï¼Œè‹¥-Xmxçš„å†…å­˜è¶³å¤Ÿå°çš„è¯ï¼Œä¼šæŠ›OutOfMemoryError */
 		Bean[] beans = new Bean[10000];
 		for (int i = 0; i < beans.length; i++) {
 			beans[i] = new Bean("Strong Reference Bean" + i);

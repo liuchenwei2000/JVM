@@ -4,15 +4,15 @@
 package classloader;
 
 /**
- * JVMÅÐ¶ÏÁ½¸öclassÊÇ·ñÏàÍ¬²âÊÔ
+ * JVMåˆ¤æ–­ä¸¤ä¸ªclassæ˜¯å¦ç›¸åŒæµ‹è¯•
  * <p>
- * JVMÔÚÅÐ¶¨Á½¸öclassÊÇ·ñÏàÍ¬Ê±£¬²»½öÒªÅÐ¶ÏÁ½¸öÀàÃûÊÇ·ñÏàÍ¬£¬¶øÇÒÒªÅÐ¶ÏÊÇ·ñÓÉÍ¬Ò»¸öÀà¼ÓÔØÆ÷ÊµÀý¼ÓÔØµÄ¡£
- * Ö»ÓÐÁ½ÕßÍ¬Ê±Âú×ãµÄÇé¿öÏÂ£¬JVM²ÅÈÏÎªÕâÁ½¸öclassÊÇÏàÍ¬µÄ£¬¾ÍËãÁ½¸öclassÊÇÍ¬Ò»·Ýclass×Ö½ÚÂë£¬
- * Èç¹û±»Á½¸ö²»Í¬µÄclassloaderÊµÀýËù¼ÓÔØ£¬JVMÒ²»áÈÏÎªËüÃÇÊÇÁ½¸ö²»Í¬class¡£
+ * JVMåœ¨åˆ¤å®šä¸¤ä¸ªclassæ˜¯å¦ç›¸åŒæ—¶ï¼Œä¸ä»…è¦åˆ¤æ–­ä¸¤ä¸ªç±»åæ˜¯å¦ç›¸åŒï¼Œè€Œä¸”è¦åˆ¤æ–­æ˜¯å¦ç”±åŒä¸€ä¸ªç±»åŠ è½½å™¨å®žä¾‹åŠ è½½çš„ã€‚
+ * åªæœ‰ä¸¤è€…åŒæ—¶æ»¡è¶³çš„æƒ…å†µä¸‹ï¼ŒJVMæ‰è®¤ä¸ºè¿™ä¸¤ä¸ªclassæ˜¯ç›¸åŒçš„ï¼Œå°±ç®—ä¸¤ä¸ªclassæ˜¯åŒä¸€ä»½classå­—èŠ‚ç ï¼Œ
+ * å¦‚æžœè¢«ä¸¤ä¸ªä¸åŒçš„classloaderå®žä¾‹æ‰€åŠ è½½ï¼ŒJVMä¹Ÿä¼šè®¤ä¸ºå®ƒä»¬æ˜¯ä¸¤ä¸ªä¸åŒclassã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-5-27
+ * åˆ›å»ºæ—¥æœŸï¼š2013-5-27
  */
 public class ClassEqualsTest {
 

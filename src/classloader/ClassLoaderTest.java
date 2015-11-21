@@ -4,11 +4,11 @@
 package classloader;
 
 /**
- * ClassLoader¼ÓÔØÀàÔ­Àí
+ * ClassLoaderåŠ è½½ç±»åŸç†
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-5-27
+ * åˆ›å»ºæ—¥æœŸï¼š2013-5-27
  */
 public class ClassLoaderTest {
 
@@ -17,16 +17,16 @@ public class ClassLoaderTest {
 	 */
 	public static void main(String[] args) {
 		/*
-		 * Êä³ö½á¹û£º
+		 * è¾“å‡ºç»“æœï¼š
 		 * 
 		 * class sun.misc.Launcher$AppClassLoader
 		 * class sun.misc.Launcher$ExtClassLoader
 		 * null
 		 * 
-		 * ÒÔ³ÌĞòÑéÖ¤ÁË
-		 * ClassLoaderTestµÄÀà¼ÓÔØÆ÷ÊÇAppClassLoader£»
-		 * AppClassLoaderµÄÀà¼ÓÔØÆ÷ÊÇExtClassLoader
-		 * ExtClassLoaderµÄÀà¼ÓÔØÆ÷ÊÇBootstrapClassLoader¡ª¡ªËü²»ÊÇJavaÀà
+		 * ä»¥ç¨‹åºéªŒè¯äº†
+		 * ClassLoaderTestçš„ç±»åŠ è½½å™¨æ˜¯AppClassLoaderï¼›
+		 * AppClassLoaderçš„ç±»åŠ è½½å™¨æ˜¯ExtClassLoader
+		 * ExtClassLoaderçš„ç±»åŠ è½½å™¨æ˜¯BootstrapClassLoaderâ€”â€”å®ƒä¸æ˜¯Javaç±»
 		 */
 		ClassLoader loader = ClassLoaderTest.class.getClassLoader();
 		while (loader != null) {
@@ -34,10 +34,10 @@ public class ClassLoaderTest {
 			loader = loader.getParent();
 		}
 		/*
-		 * ÈôÏëÓÃBootstrapClassLoaderÀ´¼ÓÔØClassLoaderTest£¬ÓĞÁ½ÖÖ·½Ê½£º
+		 * è‹¥æƒ³ç”¨BootstrapClassLoaderæ¥åŠ è½½ClassLoaderTestï¼Œæœ‰ä¸¤ç§æ–¹å¼ï¼š
 		 * 
-		 * 1£¬ÔÚJVMÖĞÌí¼Ó-Xbootclasspath²ÎÊı£¬Ö¸¶¨BootstrapClassLoader¼ÓÔØÀàµÄÂ·¾¶£¬²¢×·¼ÓÎÒÃÇ×Ô¼ºµÄjar°ü¡£
-		 * 2£¬½«classÎÄ¼ş·Åµ½JAVA_HOME/jre/classesÄ¿Â¼ÏÂ¡£
+		 * 1ï¼Œåœ¨JVMä¸­æ·»åŠ -Xbootclasspathå‚æ•°ï¼ŒæŒ‡å®šBootstrapClassLoaderåŠ è½½ç±»çš„è·¯å¾„ï¼Œå¹¶è¿½åŠ æˆ‘ä»¬è‡ªå·±çš„jaråŒ…ã€‚
+		 * 2ï¼Œå°†classæ–‡ä»¶æ”¾åˆ°JAVA_HOME/jre/classesç›®å½•ä¸‹ã€‚
 		 */
 		System.out.println(loader);
 	}

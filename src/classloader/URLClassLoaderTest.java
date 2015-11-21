@@ -8,11 +8,11 @@ import java.net.URL;
 import java.net.URLClassLoader;
 
 /**
- * URLClassLoader¼ÓÔØÖ¸¶¨Î»ÖÃÀà
+ * URLClassLoaderåŠ è½½æŒ‡å®šä½ç½®ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-5-28
+ * åˆ›å»ºæ—¥æœŸï¼š2013-5-28
  */
 public class URLClassLoaderTest {
 
@@ -21,7 +21,7 @@ public class URLClassLoaderTest {
 	 */
 	public static void main(String[] args) {
 		try {
-//			URL url = new URL("file:/d:/lib/test.jar");// Ö¸¶¨Î»ÖÃ
+//			URL url = new URL("file:/d:/lib/test.jar");// æŒ‡å®šä½ç½®
 			URL url = new URL("file:/" + new File("./lib/test.jar").getAbsolutePath());
 			
 			URLClassLoader classloader = new URLClassLoader(new URL[] { url });

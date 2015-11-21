@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Í¼Æ¬»º´æ
+ * å›¾ç‰‡ç¼“å­˜
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-6-6
+ * åˆ›å»ºæ—¥æœŸï¼š2013-6-6
  */
 public class ImageCache {
 

@@ -4,11 +4,11 @@
 package classloader;
 
 /**
- * ¼ÓÔØÀàµÄÒ»Ğ©Òì³£
+ * åŠ è½½ç±»çš„ä¸€äº›å¼‚å¸¸
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-5-26
+ * åˆ›å»ºæ—¥æœŸï¼š2013-5-26
  */
 public class LoadClassException {
 

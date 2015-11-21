@@ -8,11 +8,11 @@ import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 
 /**
- * WeakReferenceÊ¾Àı
+ * WeakReferenceç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-6-5
+ * åˆ›å»ºæ—¥æœŸï¼š2013-6-5
  */
 public class WeakReferenceTest {
 
@@ -20,33 +20,33 @@ public class WeakReferenceTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// Í¨¹ıWeakReferenceµÄ¹¹Ôì·½·¨£¬½«ĞèÒªÓÃÈõÒıÓÃÖ¸ÏòµÄ¶ÔÏó(Bean)°ü×°ÆğÀ´
+		// é€šè¿‡WeakReferenceçš„æ„é€ æ–¹æ³•ï¼Œå°†éœ€è¦ç”¨å¼±å¼•ç”¨æŒ‡å‘çš„å¯¹è±¡(Bean)åŒ…è£…èµ·æ¥
 		WeakReference<Bean> ref = new WeakReference<Bean>(new Bean("Weak Reference Bean"));
-		// ĞèÒªÊ¹ÓÃ¶ÔÏóµÄÊ±ºò£¬µ÷ÓÃget()·½·¨»ñÈ¡£¬µ±¶ÔÏóÎ´±»»ØÊÕÊ±¸Ã·½·¨»á·µ»Ø¸Ã¶ÔÏóµÄÇ¿ÒıÓÃ¡£
+		// éœ€è¦ä½¿ç”¨å¯¹è±¡çš„æ—¶å€™ï¼Œè°ƒç”¨get()æ–¹æ³•è·å–ï¼Œå½“å¯¹è±¡æœªè¢«å›æ”¶æ—¶è¯¥æ–¹æ³•ä¼šè¿”å›è¯¥å¯¹è±¡çš„å¼ºå¼•ç”¨ã€‚
 		System.out.println(ref.get());
 
-		// Ö´ĞĞÀ¬»ø»ØÊÕ
+		// æ‰§è¡Œåƒåœ¾å›æ”¶
 		System.gc();
 		System.runFinalization();
 
-		// ÈõÒıÓÃÖ¸ÏòµÄ¶ÔÏóÒ»µ©ÔËĞĞGC¾Í»á±»»ØÊÕ£¬ËùÒÔget()·µ»Ønull
+		// å¼±å¼•ç”¨æŒ‡å‘çš„å¯¹è±¡ä¸€æ—¦è¿è¡ŒGCå°±ä¼šè¢«å›æ”¶ï¼Œæ‰€ä»¥get()è¿”å›null
 		System.out.println(ref.get());
 		
-		// ¿É´«ÈëÒ»¸öReferenceQueue¶ÔÏóµ½WeakReference£¬µ±ÒıÓÃ¶ÔÏó±»±êÊ¾Îª¿É»ØÊÕÊ±£¬isEnqueued·µ»Øtrue¡£
+		// å¯ä¼ å…¥ä¸€ä¸ªReferenceQueueå¯¹è±¡åˆ°WeakReferenceï¼Œå½“å¼•ç”¨å¯¹è±¡è¢«æ ‡ç¤ºä¸ºå¯å›æ”¶æ—¶ï¼ŒisEnqueuedè¿”å›trueã€‚
 		ReferenceQueue<Bean> refQueue = new ReferenceQueue<Bean>();
 		WeakReference<Bean> ref2 = new WeakReference<Bean>(new Bean("Weak Reference Bean2"),refQueue);
 		System.out.println(ref2.get());
 		System.out.println(ref2.isEnqueued());
-		// ¿ªÊ¼À¬»ø»ØÊÕ
+		// å¼€å§‹åƒåœ¾å›æ”¶
 		System.gc();
 		System.out.println(ref2.isEnqueued());
 		
-		/** ÏÂÃæ½øĞĞ´óÊı¾İÁ¿¶ÔÏóµÄ´´½¨  */
+		/** ä¸‹é¢è¿›è¡Œå¤§æ•°æ®é‡å¯¹è±¡çš„åˆ›å»º  */
 		Reference<Bean>[] beans = new WeakReference[10000];
 		for (int i = 0; i < beans.length; i++) {
 			beans[i] = new WeakReference(new Bean("Weak Reference Bean" + i));
 		}
-		// Èô-XmxµÄÄÚ´æ×ã¹»Ğ¡µÄ»°£¬ÏÂÃæ»áÊä³önull£¬ÒòÎªbeans[1]ÒÑ±»»ØÊÕ
+		// è‹¥-Xmxçš„å†…å­˜è¶³å¤Ÿå°çš„è¯ï¼Œä¸‹é¢ä¼šè¾“å‡ºnullï¼Œå› ä¸ºbeans[1]å·²è¢«å›æ”¶
 		System.out.println(beans[1].get());
 	}
 }

@@ -4,11 +4,11 @@
 package classloader;
 
 /**
- * NetworkClassLoader¼ÓÔØÀàÑİÊ¾
+ * NetworkClassLoaderåŠ è½½ç±»æ¼”ç¤º
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-5-27
+ * åˆ›å»ºæ—¥æœŸï¼š2013-5-27
  */
 public class NetworkClassLoaderTest {
 

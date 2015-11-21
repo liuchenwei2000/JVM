@@ -8,14 +8,14 @@ import java.io.InputStream;
 import java.net.URL;
 
 /**
- * ¼ÓÔØÍøÂçÉÏclassµÄClassLoader
+ * åŠ è½½ç½‘ç»œä¸Šclassçš„ClassLoader
  * <p>
- * <li>1,¼Ì³Ğ java.lang.ClassLoader
- * <li>2,ÖØĞ´¸¸ÀàµÄfindClass·½·¨
+ * <li>1,ç»§æ‰¿ java.lang.ClassLoader
+ * <li>2,é‡å†™çˆ¶ç±»çš„findClassæ–¹æ³•
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-5-27
+ * åˆ›å»ºæ—¥æœŸï¼š2013-5-27
  */
 public class NetworkClassLoader extends ClassLoader {
 
@@ -28,19 +28,19 @@ public class NetworkClassLoader extends ClassLoader {
 	@Override
 	protected Class<?> findClass(String name) throws ClassNotFoundException {
 		Class<?> clazz = findLoadedClass(name);
-		if (clazz == null) {// ¼ì²éÊÇ·ñÒÑ¾­±»¼ÓÔØ
+		if (clazz == null) {// æ£€æŸ¥æ˜¯å¦å·²ç»è¢«åŠ è½½
 			byte[] classData = getClassData(name);
 			if (classData == null) {
 				throw new ClassNotFoundException();
 			}
-			// ½«classµÄ×Ö½ÚÂëÊı×é×ª»¯³ÉClassÀàµÄÊµÀı
+			// å°†classçš„å­—èŠ‚ç æ•°ç»„è½¬åŒ–æˆClassç±»çš„å®ä¾‹
 			clazz = defineClass(name, classData, 0, classData.length);
 		}
 		return clazz;
 	}
 
 	/**
-	 * ´ÓÖ¸¶¨URLÏÂÔØclassÎÄ¼şÊı¾İ
+	 * ä»æŒ‡å®šURLä¸‹è½½classæ–‡ä»¶æ•°æ®
 	 */
 	private byte[] getClassData(String name) {
 		try {

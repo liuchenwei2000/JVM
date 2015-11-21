@@ -1,18 +1,18 @@
 package classloader;
 
 /**
- * Class¼ÓÔØµÄ²»Í¬·½Ê½
+ * ClassåŠ è½½çš„ä¸åŒæ–¹å¼
  * <p>
- * ÔÚJVM¼ÓÔØÀàµÄÊ±ºò£¬ĞèÒª¾­¹ıÈı¸ö²½Öè£º×°ÔØ¡¢Á¬½Ó¡¢³õÊ¼»¯¡£
- * ×°ÔØ¾ÍÊÇÕÒµ½ÏàÓ¦µÄclassÎÄ¼ş£¬¶ÁÈëJVM¡£
- * Á¬½Ó·ÖÈı²½£¬µÚÒ»²½ÑéÖ¤classÊÇ·ñ·ûºÏ¹æ¸ñ£¬
- * µÚ¶ş²½ÊÇ×¼±¸£¬ÎªÀà±äÁ¿·ÖÅäÄÚ´æÍ¬Ê±ÉèÖÃÄ¬ÈÏ³õÊ¼Öµ£¬
- * µÚÈı²¿ÊÇ½âÊÍ£¬Õâ²½ÊÇ¿ÉÑ¡µÄ¡£
- * ³õÊ¼»¯¾ÍÊÇÖ´ĞĞÀàµÄ³õÊ¼»¯¹¤×÷£¬ÖîÈçÀà±äÁ¿¡£
+ * åœ¨JVMåŠ è½½ç±»çš„æ—¶å€™ï¼Œéœ€è¦ç»è¿‡ä¸‰ä¸ªæ­¥éª¤ï¼šè£…è½½ã€è¿æ¥ã€åˆå§‹åŒ–ã€‚
+ * è£…è½½å°±æ˜¯æ‰¾åˆ°ç›¸åº”çš„classæ–‡ä»¶ï¼Œè¯»å…¥JVMã€‚
+ * è¿æ¥åˆ†ä¸‰æ­¥ï¼Œç¬¬ä¸€æ­¥éªŒè¯classæ˜¯å¦ç¬¦åˆè§„æ ¼ï¼Œ
+ * ç¬¬äºŒæ­¥æ˜¯å‡†å¤‡ï¼Œä¸ºç±»å˜é‡åˆ†é…å†…å­˜åŒæ—¶è®¾ç½®é»˜è®¤åˆå§‹å€¼ï¼Œ
+ * ç¬¬ä¸‰éƒ¨æ˜¯è§£é‡Šï¼Œè¿™æ­¥æ˜¯å¯é€‰çš„ã€‚
+ * åˆå§‹åŒ–å°±æ˜¯æ‰§è¡Œç±»çš„åˆå§‹åŒ–å·¥ä½œï¼Œè¯¸å¦‚ç±»å˜é‡ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-5-26
+ * åˆ›å»ºæ—¥æœŸï¼š2013-5-26
  */
 public class ClassLoadDemo {
 
@@ -22,28 +22,28 @@ public class ClassLoadDemo {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) throws ClassNotFoundException {
 		/*
-		 * JVM½«Ê¹ÓÃPersonÀàµÄClassLoader½«PersonÀà×°ÈëÄÚ´æ£¨Èç¹ûPersonÀàÉĞÎ´×°ÈëÄÚ´æµÄ»°£©
-		 * µ«²»¶ÔPersonÀà½øĞĞ³õÊ¼»¯£¬ ½ö·µ»ØPersonÀàµÄClass¶ÔÏó¡£
+		 * JVMå°†ä½¿ç”¨Personç±»çš„ClassLoaderå°†Personç±»è£…å…¥å†…å­˜ï¼ˆå¦‚æœPersonç±»å°šæœªè£…å…¥å†…å­˜çš„è¯ï¼‰
+		 * ä½†ä¸å¯¹Personç±»è¿›è¡Œåˆå§‹åŒ–ï¼Œ ä»…è¿”å›Personç±»çš„Classå¯¹è±¡ã€‚
 		 */
-		// Ê²Ã´¶¼²»Êä³ö
+		// ä»€ä¹ˆéƒ½ä¸è¾“å‡º
 		Class<?> pclass1 = Person.class;
 
 		/*
-		 * JVM½«Ê¹ÓÃµ±Ç°Ïß³ÌµÄClassLoader×°ÔØÖ¸¶¨Àà£¬µ«ÊÇ²»Á¬½Ó²»³õÊ¼»¯¡£
+		 * JVMå°†ä½¿ç”¨å½“å‰çº¿ç¨‹çš„ClassLoaderè£…è½½æŒ‡å®šç±»ï¼Œä½†æ˜¯ä¸è¿æ¥ä¸åˆå§‹åŒ–ã€‚
 		 */
-		// Ê²Ã´¶¼²»Êä³ö
+		// ä»€ä¹ˆéƒ½ä¸è¾“å‡º
 		Class<?> pclass2 = Thread.currentThread().getContextClassLoader().loadClass("classloader.Person");
 
 		/*
-		 * JVM½«Ê¹ÓÃµ÷ÓÃÀàËùÊ¹ÓÃµÄClassLoader×°ÔØÖ¸¶¨Àà£¬²¢ÇÒÁ¬½ÓÀà¡¢³õÊ¼»¯Àà¡£
+		 * JVMå°†ä½¿ç”¨è°ƒç”¨ç±»æ‰€ä½¿ç”¨çš„ClassLoaderè£…è½½æŒ‡å®šç±»ï¼Œå¹¶ä¸”è¿æ¥ç±»ã€åˆå§‹åŒ–ç±»ã€‚
 		 */
-		// Êä³ö initialize age in static block.
+		// è¾“å‡º initialize age in static block.
 		Class<?> pclass3 = Class.forName("classloader.Person");
 
 		/*
-		 * object.getClass()·µ»Ø¶ÔÏóobjectÔËĞĞÊ±ÕæÕıËùÖ¸µÄ¶ÔÏóËùÊôÀà£¨Person£©
+		 * object.getClass()è¿”å›å¯¹è±¡objectè¿è¡Œæ—¶çœŸæ­£æ‰€æŒ‡çš„å¯¹è±¡æ‰€å±ç±»ï¼ˆPersonï¼‰
 		 */
-		// Êä³ö initialize age in static block.£¨Ê¹ÓÃnewµÄÊ±ºò¼ÓÔØ²¢³õÊ¼»¯Àà£©
+		// è¾“å‡º initialize age in static block.ï¼ˆä½¿ç”¨newçš„æ—¶å€™åŠ è½½å¹¶åˆå§‹åŒ–ç±»ï¼‰
 		Object object = new Person();
 		Class<?> pclass4 = object.getClass();
 	}

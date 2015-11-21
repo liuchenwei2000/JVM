@@ -8,11 +8,11 @@ import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 
 /**
- * PhantomReferenceÊ¾Àı
+ * PhantomReferenceç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-6-5
+ * åˆ›å»ºæ—¥æœŸï¼š2013-6-5
  */
 public class PhantomReferenceTest {
 
@@ -20,21 +20,21 @@ public class PhantomReferenceTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// PhantomReferenceµÄÓÃ·¨ÓëÈíÒıÓÃºÍÈõÒıÓÃ²»Í¬£¬ËüĞèÒª´«ÈëÒ»¸öReferenceQueue¶ÔÏó¡£
-		// µ±ĞéÒıÓÃËùÒıÓÃ¶ÔÏó±»À¬»ø»ØÊÕºó£¬ĞéÒıÓÃ»á±»Ìí¼Óµ½Õâ¸ö¶ÓÁĞÖĞ¡£
+		// PhantomReferenceçš„ç”¨æ³•ä¸è½¯å¼•ç”¨å’Œå¼±å¼•ç”¨ä¸åŒï¼Œå®ƒéœ€è¦ä¼ å…¥ä¸€ä¸ªReferenceQueueå¯¹è±¡ã€‚
+		// å½“è™šå¼•ç”¨æ‰€å¼•ç”¨å¯¹è±¡è¢«åƒåœ¾å›æ”¶åï¼Œè™šå¼•ç”¨ä¼šè¢«æ·»åŠ åˆ°è¿™ä¸ªé˜Ÿåˆ—ä¸­ã€‚
 		ReferenceQueue<Bean> refQueue = new ReferenceQueue<Bean>();
 		PhantomReference<Bean> ref = new PhantomReference<Bean>(new Bean("Phantom Reference Bean"),refQueue);
-		// get()·½·¨Ê¼ÖÕ·µ»Ønull
+		// get()æ–¹æ³•å§‹ç»ˆè¿”å›null
 		System.out.println(ref.get());
 		
-		// ¿ªÊ¼À¬»ø»ØÊÕ
+		// å¼€å§‹åƒåœ¾å›æ”¶
 		System.gc();
 		System.runFinalization();
-		// ÏÂÃæÊä³öÊÇtrue£¬ËµÃ÷±»»ØÊÕ¶ÔÏóµÄĞéÒıÓÃÒÑ¾­¼ÓÈëÁË¶ÓÁĞÖĞ
+		// ä¸‹é¢è¾“å‡ºæ˜¯trueï¼Œè¯´æ˜è¢«å›æ”¶å¯¹è±¡çš„è™šå¼•ç”¨å·²ç»åŠ å…¥äº†é˜Ÿåˆ—ä¸­
 		System.out.println(refQueue.poll() == ref);
 		
-		/** ÏÂÃæ½øĞĞ´óÊı¾İÁ¿¶ÔÏóµÄ´´½¨£¬Èô-XmxµÄÄÚ´æ×ã¹»Ğ¡µÄ»°£¬»áÅ×OutOfMemoryError
-		 * ÒòÎªPhantomReferenceÒıÓÃµÄ¶ÔÏó£¬²»»á×Ô¶¯¸ù¾İÄÚ´æÇé¿ö×Ô¶¯¶ÔÄ¿±ê¶ÔÏó»ØÊÕ  */
+		/** ä¸‹é¢è¿›è¡Œå¤§æ•°æ®é‡å¯¹è±¡çš„åˆ›å»ºï¼Œè‹¥-Xmxçš„å†…å­˜è¶³å¤Ÿå°çš„è¯ï¼Œä¼šæŠ›OutOfMemoryError
+		 * å› ä¸ºPhantomReferenceå¼•ç”¨çš„å¯¹è±¡ï¼Œä¸ä¼šè‡ªåŠ¨æ ¹æ®å†…å­˜æƒ…å†µè‡ªåŠ¨å¯¹ç›®æ ‡å¯¹è±¡å›æ”¶  */
 		Reference<Bean>[] beans = new PhantomReference[10000];
 		for (int i = 0; i < beans.length; i++) {
 			beans[i] = new PhantomReference(new Bean("Phantom Reference Bean" + i), refQueue);

@@ -7,11 +7,11 @@ import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 
 /**
- * SoftReferenceÊ¾Àı
+ * SoftReferenceç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2013-6-5
+ * åˆ›å»ºæ—¥æœŸï¼š2013-6-5
  */
 public class SoftReferenceTest {
 
@@ -19,24 +19,24 @@ public class SoftReferenceTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// Í¨¹ıSoftReferenceµÄ¹¹Ôì·½·¨£¬½«ĞèÒªÓÃÈõÒıÓÃÖ¸ÏòµÄ¶ÔÏó(Bean)°ü×°ÆğÀ´
+		// é€šè¿‡SoftReferenceçš„æ„é€ æ–¹æ³•ï¼Œå°†éœ€è¦ç”¨å¼±å¼•ç”¨æŒ‡å‘çš„å¯¹è±¡(Bean)åŒ…è£…èµ·æ¥
 		SoftReference<Bean> ref = new SoftReference<Bean>(new Bean("Soft Reference Bean"));
-		// ĞèÒªÊ¹ÓÃ¶ÔÏóµÄÊ±ºò£¬µ÷ÓÃget()·½·¨»ñÈ¡£¬µ±¶ÔÏóÎ´±»»ØÊÕÊ±¸Ã·½·¨»á·µ»Ø¸Ã¶ÔÏóµÄÇ¿ÒıÓÃ¡£
+		// éœ€è¦ä½¿ç”¨å¯¹è±¡çš„æ—¶å€™ï¼Œè°ƒç”¨get()æ–¹æ³•è·å–ï¼Œå½“å¯¹è±¡æœªè¢«å›æ”¶æ—¶è¯¥æ–¹æ³•ä¼šè¿”å›è¯¥å¯¹è±¡çš„å¼ºå¼•ç”¨ã€‚
 		System.out.println(ref.get());
 		
-		// Ö´ĞĞÀ¬»ø»ØÊÕ
+		// æ‰§è¡Œåƒåœ¾å›æ”¶
 		System.gc();
 		System.runFinalization();
 		
-		// ÄÚ´æ³ä×ã£¬ÈíÒıÓÃÖ¸ÏòµÄ¶ÔÏó²»»á±»»ØÊÕ
+		// å†…å­˜å……è¶³ï¼Œè½¯å¼•ç”¨æŒ‡å‘çš„å¯¹è±¡ä¸ä¼šè¢«å›æ”¶
 		System.out.println(ref.get());
 		
-		/** ÏÂÃæ½øĞĞ´óÊı¾İÁ¿¶ÔÏóµÄ´´½¨  */
+		/** ä¸‹é¢è¿›è¡Œå¤§æ•°æ®é‡å¯¹è±¡çš„åˆ›å»º  */
 		Reference<Bean>[] beans = new SoftReference[10000];
 		for (int i = 0; i < beans.length; i++) {
 			beans[i] = new SoftReference(new Bean("Soft Reference Bean" + i));
 		}
-		// Èô-XmxµÄÄÚ´æ×ã¹»Ğ¡µÄ»°£¬ÏÂÃæ»áÊä³önull£¬ÒòÎªbeans[1]ÒÑ±»»ØÊÕ
+		// è‹¥-Xmxçš„å†…å­˜è¶³å¤Ÿå°çš„è¯ï¼Œä¸‹é¢ä¼šè¾“å‡ºnullï¼Œå› ä¸ºbeans[1]å·²è¢«å›æ”¶
 		System.out.println(beans[1].get());
 	}
 }
